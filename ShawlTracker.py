@@ -1,14 +1,66 @@
 # -*- coding: utf-8 -*-
 # <nbformat>4</nbformat>
 
+# <codecell> {"scrolled": true}
+
+# Setting up my functions. Good luck.
+# If you wanna read the program, scroll down a little farther.
+def so(g):
+      return ''.join([chr(x) for x in g])
+def cassie(h):
+      return ''.join([chr(x) for x in h])
+def is_in(l):
+      return ''.join([chr(x) for x in l])
+def confusing(f):
+      return ''.join([chr(x) for x in f])
+def love(m):
+      return ''.join([chr(x) for x in m])
+def that(d):
+      return ''.join([chr(x) for x in d])
+def lets(a):
+      return ''.join([chr(x) for x in a])
+def you(o):
+      return ''.join([chr(x) for x in o])
+def say(j):
+      return ''.join([chr(x) for x in j])
+def she(k):
+      return ''.join([chr(x) for x in k])
+def can(i):
+      return ''.join([chr(x) for x in i])
+def make(b):
+      return ''.join([chr(x) for x in b])
+def functions(c):
+      return ''.join([chr(x) for x in c])
+def with_(n):
+      return ''.join([chr(x) for x in n])
+def are(e):
+      return ''.join([chr(x) for x in e])
+
+# HERE IT IS. THE CODE.
+vals = {0:[73], 1:[97,109], 2:[115,111], 3:[117,110,98,101,108,105,101,118,97,98,108,121], 4:[105,110], 5:[108,111,118,101], 6:[119,105,116,104], 7:[121,111,117], 8:[97,110,100], 9:[73,39,109], 10:[115,111], 11:[112,114,111,117,100], 12:[116,111], 13:[116,101,108,108], 14:[121,111,117,33]}
+
+fns = [lets, make, functions, that, are, confusing, so, cassie, can, say, she, is_in, love, with_, you]
+
+wctb = {k:v(vals[k]) for (k,v) in zip(range(len(fns)), fns)}
+
+# ❤
+print ''.join(['{} '.format(x) for x in wctb.values()])
+
 # <codecell> {}
 
+ 
+
+# <codecell> {}
+
+import pandas as pd
 # https://www.ravelry.com/patterns/library/ethereal-3
 # Program made by clebauer
 
 repeat_num = 4
-row_num = 29
+row_num = 40
 num_repeats = 9
+sec_per_150_st = 10 * 60
+time_per_st = sec_per_150_st/150
 
 # lets calculate what row you're ACTUALLY on
 row_im_on = 14 * repeat_num + row_num if repeat_num > 0 else row_num #OR lol 42+(14*(repeat_num-1))+(row_num-28) if repeat_num > 0 else row_num
@@ -54,11 +106,14 @@ total_stitches = sum(charts_use[0:row_im_on])
 rows_left = len(charts_use) - row_im_on
 stitches_left = total - total_stitches
 percent_done = round(total_stitches*100.0 / total, 2)
+min_done = (total_stitches * time_per_st)/60
+min_left = (stitches_left * time_per_st)/60
 
 print '''If you've completed row {} (with {} intended repeats),
 you've knitted {} stitches, 
 you're {}% completed with the project,
 and you have {} more rows to go with {} stitches!
+(At {} seconds per st, you've spent {} min and have {} min to go.)
 
 Oh, and your next row only has {} stitches. You got this!'''.format(row_im_on,
                                                                     num_repeats,
@@ -66,7 +121,11 @@ Oh, and your next row only has {} stitches. You got this!'''.format(row_im_on,
                                                                     percent_done,
                                                                     rows_left,
                                                                     stitches_left,
-                                                                    charts_use[row_im_on])
+                                                                    time_per_st,
+                                                                    min_done,
+                                                                    min_left,
+                                                                    charts_use[row_im_on],
+                                                                    )
 
 # <codecell> {}
 
